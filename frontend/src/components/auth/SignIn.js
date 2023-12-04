@@ -9,18 +9,25 @@ export const SignIn = () => {
   const signIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredentials) => console.log(userCredentials))
-    .catch((error) => console.log(error))
+      .then((userCredentials) => console.log(userCredentials))
+      .catch((error) => console.log(error))
   }
 
   return (
-    <div className="sign-in-container">
-      <h2>Log in to Account</h2>
-      <form onSubmit={signIn}>
-        <input type="email" placeholder='Enter email...' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-        <input type="password" placeholder="Enter password..." value={password} onChange={(e)=>setPassword(e.target.value)}></input>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      <h3>Log in to Account</h3>
+      <div className="sign-in-container">
+        <form onSubmit={signIn}>
+          <div className='signSection'>
+            <label>username: </label><input type="email" placeholder='Enter email...' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+          </div>
+          <div className='signSection'>
+            <label>password: </label><input type="password" placeholder="Enter password..." value={password} onChange={(e) => setPassword(e.target.value)}></input>
+          </div>
+          <button className="signButton" type="submit">Login</button>
+        </form>
+      </div>
+
+    </>
   )
 }

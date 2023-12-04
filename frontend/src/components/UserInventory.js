@@ -63,7 +63,7 @@ export const UserInventory = () => {
         return (
         
           <li key={index}>
-            <Link to={`/item/details/${item.item_id}`} state={{item}}>
+            <Link to={`/item/details/edit/${item.item_id}`} state={{item}}>
               Item: {item.item} <br></br>
               Description: {str} <br></br>
               Quantity: {item.quantity} 

@@ -12,36 +12,46 @@ export const SignUp = () => {
   const signUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredentials)=> {
-    let newUser = {
-        "uid" : userCredentials.user.uid,
-        "firstName" : firstName,
-        "lastName" : lastName
-      }
-      fetch("http://localhost:8080/users",
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
+      .then((userCredentials) => {
+        let newUser = {
+          "uid": userCredentials.user.uid,
+          "firstName": firstName,
+          "lastName": lastName
+        }
+        fetch("http://localhost:8080/users",
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          })
       })
-    })
-    .catch((error)=>console.log(error));
-    
+      .catch((error) => console.log(error));
+
   }
 
   return (
-    <div className="sign-up-container">
-      <h2>Sign Up for Account</h2>
-      <form onSubmit={signUp}>
-        <input type="text" placeholder='Enter first name...' value={firstName} onChange={(e)=>setFirstName(e.target.value)}></input>
-        <input type="text" placeholder='Enter last name...' value={lastName} onChange={(e)=>setLastName(e.target.value)}></input>
-        <input type="email" placeholder='Enter email...' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-        <input type="password" placeholder='Enter password...' value={password} onChange={(e)=>setPassword(e.target.value)}></input>
-        <button type="submit">Create Account</button>
-      </form>
-    </div>
+    <>
+      <h3>Sign Up for Account</h3>
+      <div className="sign-up-container">
+        <form onSubmit={signUp}>
+          <div className="signSection">
+            <label>First Name: </label><input type="text" placeholder='Enter first name...' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
+          </div>
+          <div className="signSection">
+            <label>Last Name: </label><input type="text" placeholder='Enter last name...' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
+          </div>
+          <div className="signSection">
+            <label>Email:</label><input type="email" placeholder='Enter email...' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+          </div>
+          <div className="signSection">
+            <label>Password: </label><input type="password" placeholder='Enter password...' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+          </div>
+          <button className="signButton" type="submit">Create Account</button>
+        </form>
+      </div>
+    </>
   )
 }

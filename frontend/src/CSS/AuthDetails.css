@@ -1,0 +1,40 @@
+body {
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding: 0;
+}
+
+.container {
+  margin:10%;
+  min-width: 700px;
+  max-width: 900px;
+}
+
+.section {
+  border: solid 1px black;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(241, 241, 241);
+  justify-content: center;
+  align-items: center;
+}
+
+#signInButton {
+  display:flex;
+  /* margin-left:500px; */
+}
+
+.sign-in-container, .sign-up-container {
+  display: flex;
+}
+
+.signSection {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.signButton{
+  margin-top:15px;
+}

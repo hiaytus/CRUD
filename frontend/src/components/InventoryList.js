@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../CSS/List.css"
 
 export const InventoryList = () => {
   const [inventoryList, setInventoryList] = useState([]) 
@@ -19,10 +21,13 @@ export const InventoryList = () => {
         return (
         
           <li key={index}>
-              Item: {item.item} <br></br>
-              Description: {str} <br></br>
-              Quantity: {item.quantity} 
-          </li>
+          <Link to={`/item/details/${item.item_id}`} state={{item}}>
+            <span className="title">Item: </span>{item.item} <br></br>
+            <span className="title">Description: </span> {str} <br></br>
+            <span className="title">Quantity: </span> : {item.quantity} 
+          </Link>
+
+        </li>
       
       )
       })}

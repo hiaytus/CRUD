@@ -5,14 +5,15 @@ import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
 import { UserInventory } from "../UserInventory";
 import { InventoryList } from "../InventoryList";
+import '../../CSS/AuthDetails.css';
 
 
 export const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
   const auth = getAuth();
-  const user = auth.currentUser
+  // const user = auth.currentUser
 
-  useEffect(()=> {
+  useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user)
@@ -27,25 +28,31 @@ export const AuthDetails = () => {
   }, []);
 
   const userSignOut = () => {
-    signOut(auth).then(()=>console.log('logged out'))
+    signOut(auth).then(() => console.log('logged out'))
   }
-  
+
   return (
-    <div> {authUser ? 
-    <>
-    <h2>{user.uid}</h2>
-    <p>{`signed in as ${authUser.email}`}</p> 
-    <button onClick={userSignOut}>Log out</button>
-    <UserInventory/>
-    </>
-    : 
-    <>
-    <SignIn />
-    <SignUp />
-    <p> Signed Out </p>
-    <h3>Public Inventory</h3>
-    <InventoryList />
-    </>
+    <div> {authUser ?
+      <>
+        {/* <h2>{user.uid}</h2> */}
+        <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3>
+
+        <UserInventory />
+      </>
+      :
+      <div class="container">
+        <h3> Signed Out </h3>
+        <div class="section">
+          <SignIn />
+        </div>
+        <div class="section">
+          <SignUp />
+        </div>
+        <div class="section">
+          <h3>Public Inventory</h3>
+          <InventoryList />
+        </div>
+      </div>
     }
     </div>
   )
