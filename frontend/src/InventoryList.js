@@ -15,7 +15,7 @@ export const InventoryList = () => {
     <ul>
       {inventoryList.map((item, index) => {
         return (
-          <li key={index}>Item: {item.item} Description: {item.description}  Quantity: {item.quantity} </li>
+          <li key={index}>{item.item}</li>
       )
       })}
     </ul>
