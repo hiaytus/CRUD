@@ -10,10 +10,10 @@ function App() {
 <>
 {/* <AuthDetails/> */}
 <Routes>
-  <Route path="/" element={<InventoryList />}/>
+  <Route path="/" element={<AuthDetails />}/>
   <Route path="/items/user" element={<UserInventory />}/>
-  <Route path="/item/details/" element={<ItemDetails />}/>
-  <Route path="/auth" element={<AuthDetails />}/>
+  <Route path="/item/details/:id" element={<ItemDetails />}/>
+
 </Routes>
 
 </>

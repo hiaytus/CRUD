@@ -5,11 +5,11 @@
 exports.up = function(knex) {
   return knex.schema.createTable('users', function (table) {
     table.increments('user_id');
-    table.string('first name');
-    table.string('last name');
-    table.string('username');
-    table.string('password');
-    table.string('uid').unique(); // user ID
+    table.string('firstName');
+    table.string('lastName');
+    // table.string('username');    username/email stored in Firebase
+    // table.string('password');    password stored in Firebase
+    table.string('uid').unique(); // userID association with Firebase
   })
   
 };

@@ -7,14 +7,14 @@ export const UserInventory = () => {
 
   const auth = getAuth();
   const user = auth.currentUser
-  const [userID, setUserID] = useState(user.uid) // SET USER ID BASED ON LOG IN
+  // const [userID, setUserID] = useState(user.uid)  // SET USER ID BASED ON LOG IN
 
   const [item, setItem] = useState('')
   const [quantity, setQuantity] = useState(0) 
   const [description, setDescription] = useState('') 
 
   useEffect(() => {
-    fetch(`http://localhost:8080/items/user/${userID}`)
+    fetch(`http://localhost:8080/items/user/${user.uid}`)
     .then(res => res.json())
     .then(data => setUserInventory(data))
     }, [pageReload])
@@ -36,7 +36,7 @@ export const UserInventory = () => {
         body: JSON.stringify(newItem),
       })
         .then(()=> setUserInventory((prev) => [...prev, newItem]))
-        // .then(()=> setPageReload(newItem))
+        .then(()=> setPageReload(newItem))
     }
 
     const deleteItem = (itemID) => {
@@ -61,7 +61,7 @@ export const UserInventory = () => {
         return (
           
           <li key={index}>
-            <Link to={`/item/details/`} state={{item}}>
+            <Link to={`/item/details/${item.item_id}`} state={{item}}>
               Item: {item.item} <br></br>
               Description: {item.description} <br></br>
               Quantity: {item.quantity} 

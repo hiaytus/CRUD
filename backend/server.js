@@ -55,7 +55,7 @@ app.post('/items', async(req, res) => {
     .returning("*")
     .insert({
       item_id: maxIdQuery.maxID + 1,
-      user_id: req.body.user_id,
+      uid: req.body.uid,
       item: req.body.item,
       description: req.body.description,
       quantity: req.body.quantity
@@ -67,12 +67,30 @@ app.post('/items', async(req, res) => {
     })
 } )
 
+app.post('/users', async(req, res) => {
+  const maxIdQuery = await knex('users').max('user_id as maxID').first()
+  
+  await knex('users')
+    .returning("*")
+    .insert({
+      user_id: maxIdQuery.maxID + 1,
+      uid: req.body.uid,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+    })
+    .then(() => {
+      knex("users")
+        .select("*")
+        .then(data => res.json(data))
+    })
+} )
+
 // PATCH
 app.patch('/items/:id', (req, res) => {
   knex('items')
   .where('item_id', req.params.id)
   .update({
-      user_id: req.body.user_id,
+      uid: req.body.uid,
       item: req.body.item,
       description: req.body.description,
       quantity: req.body.quantity
