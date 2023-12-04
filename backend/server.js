@@ -82,3 +82,15 @@ app.patch('/items/:id', (req, res) => {
     .select("*")
     .then(data => res.json(data))});
 })
+
+// DELETE
+app.delete('/items/:id', (req, res) => {
+  knex('items')
+  .where('item_id', req.params.id)
+  .del()
+  .then(()=>{
+    knex("items")
+    .select("*")
+    .then(data => res.json(data))
+  })
+})
