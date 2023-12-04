@@ -22,7 +22,6 @@ export const UserInventory = () => {
         "quantity" : quantity,
         "user_id" : userID
       }
-    
       fetch("http://localhost:8080/items",
       {
         method: "POST",
@@ -35,17 +34,14 @@ export const UserInventory = () => {
         .then(setUserInventory((prev) => [...prev, newItem]))
     }
 
-    
-    // const addItem = () => {
-    //   fetch('http://localhost:8081/items'),{
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       item: newItem
-    //     }),
-    //     headers: {
-    //       'Content-type': 'application/json; charset=UTF-8',
-    //     },
-    //     }
+    const deleteItem = (itemID) => {
+      fetch(`http://localhost:8080/items/${itemID}`, {
+        method: 'DELETE'
+      })   
+      .then(() => {
+        setPageReload(itemID)
+      })
+  }
 
   return (
     <>
@@ -59,7 +55,10 @@ export const UserInventory = () => {
       {userInventory.map((item, index) => {
         return (
           
-          <li key={index}><Link to="/item/detail/" state={{item}}>{item.item}</Link></li>
+          <li key={index}>
+            <Link to="/item/detail/" state={{item}}>{item.item}</Link>
+            <button type="button" onClick={()=>deleteItem(item.item_id)}>delete</button>
+          </li>
       
       )
       })}
