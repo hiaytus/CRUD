@@ -75,7 +75,7 @@ export const UserInventory = () => {
       })}
     </ul>
 
-    <Link to={`/public`}>View all</Link>
+    <button><Link to={`/all`}>View all</Link></button>
     </>
   )
 }
