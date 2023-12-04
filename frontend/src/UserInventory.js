@@ -9,6 +9,7 @@ export const UserInventory = () => {
   const [item, setItem] = useState('')
   const [quantity, setQuantity] = useState(0) 
   const [description, setDescription] = useState('') 
+
   useEffect(() => {
     fetch(`http://localhost:8080/items/user/${userID}`)
     .then(res => res.json())
@@ -56,7 +57,7 @@ export const UserInventory = () => {
         return (
           
           <li key={index}>
-            <Link to="/item/detail/" state={{item}}>{item.item}</Link>
+            <Link to={`/item/details`} state={{item}}>{item.item}</Link>
             <button type="button" onClick={()=>deleteItem(item.item_id)}>delete</button>
           </li>
       
