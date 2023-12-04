@@ -74,6 +74,8 @@ export const UserInventory = () => {
       )
       })}
     </ul>
+
+    <Link to={`/public`}>View all</Link>
     </>
   )
 }

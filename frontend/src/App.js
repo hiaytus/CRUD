@@ -13,7 +13,7 @@ function App() {
   <Route path="/" element={<AuthDetails />}/>
   <Route path="/items/user" element={<UserInventory />}/>
   <Route path="/item/details/:id" element={<ItemDetails />}/>
-
+  <Route path="/public" element={<InventoryList />}/>
 </Routes>
 
 </>

@@ -13,9 +13,17 @@ export const InventoryList = () => {
   return (
     <>
     <ul>
-      {inventoryList.map((item, index) => {
+    {inventoryList.map((item, index) => {
+        let str = item.description;
+        if(str.length > 100) str = str.substring(0,100) + `...`;
         return (
-          <li key={index}>{item.item}</li>
+        
+          <li key={index}>
+              Item: {item.item} <br></br>
+              Description: {str} <br></br>
+              Quantity: {item.quantity} 
+          </li>
+      
       )
       })}
     </ul>

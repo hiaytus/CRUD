@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const ItemDetails = (props) => {
@@ -12,8 +12,8 @@ export const ItemDetails = (props) => {
 
   const [editToggle, setEditToggle] = useState(true) 
 
-  const [inventoryList, setInventoryList] = useState([]) 
-  const [pageReload, setPageReload] = useState(null) 
+  // const [inventoryList, setInventoryList] = useState([]) 
+  // const [pageReload, setPageReload] = useState(null) 
 
   const handleSubmit = (itemID) => {
     let changedItem = {
