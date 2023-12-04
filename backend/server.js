@@ -15,7 +15,7 @@ app.listen(port, () => {
 // GET 
 app.get('/', (req, res) =>{
   knex('items')
-    .join('users', "users.user_id", "=", "items.user_id")
+    .join('users', "users.uid", "=", "items.uid")
     .select('*')
     .then(data => res.status(200).json(data))
 })
@@ -35,7 +35,7 @@ app.get('/items/:id', (req, res) =>{
 
 app.get('/items/user/:id', (req, res) =>{
   knex('items')
-    .where('user_id', req.params.id)
+    .where('uid', req.params.id)
     .select('*')
     .then(data => res.status(200).json(data))
 })
@@ -52,6 +52,7 @@ app.post('/items', async(req, res) => {
   const maxIdQuery = await knex('items').max('item_id as maxID').first()
   
   await knex('items')
+    .returning("*")
     .insert({
       item_id: maxIdQuery.maxID + 1,
       user_id: req.body.user_id,

@@ -9,6 +9,7 @@ exports.up = function(knex) {
     table.string('last name');
     table.string('username');
     table.string('password');
+    table.string('uid').unique(); // user ID
   })
   
 };

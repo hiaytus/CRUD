@@ -13,6 +13,7 @@ function App() {
   <Route path="/" element={<InventoryList />}/>
   <Route path="/items/user" element={<UserInventory />}/>
   <Route path="/item/details/" element={<ItemDetails />}/>
+  <Route path="/auth" element={<AuthDetails />}/>
 </Routes>
 
 </>

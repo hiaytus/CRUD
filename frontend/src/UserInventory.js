@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { getAuth } from "firebase/auth";
 export const UserInventory = () => {
   const [userInventory, setUserInventory] = useState([]) 
   const [pageReload, setPageReload] = useState(null) 
-  const [userID, setUserID] = useState(1) // SET USER ID BASED ON LOG IN
+
+  const auth = getAuth();
+  const user = auth.currentUser
+  const [userID, setUserID] = useState(user.uid) // SET USER ID BASED ON LOG IN
 
   const [item, setItem] = useState('')
   const [quantity, setQuantity] = useState(0) 
@@ -21,7 +24,7 @@ export const UserInventory = () => {
         "item" : item,
         "description" : description,
         "quantity" : quantity,
-        "user_id" : userID
+        "uid": user.uid
       }
       fetch("http://localhost:8080/items",
       {
@@ -32,7 +35,8 @@ export const UserInventory = () => {
         },
         body: JSON.stringify(newItem),
       })
-        .then(setUserInventory((prev) => [...prev, newItem]))
+        .then(()=> setUserInventory((prev) => [...prev, newItem]))
+        // .then(()=> setPageReload(newItem))
     }
 
     const deleteItem = (itemID) => {
@@ -57,7 +61,11 @@ export const UserInventory = () => {
         return (
           
           <li key={index}>
-            <Link to={`/item/details`} state={{item}}>{item.item}</Link>
+            <Link to={`/item/details/`} state={{item}}>
+              Item: {item.item} <br></br>
+              Description: {item.description} <br></br>
+              Quantity: {item.quantity} 
+            </Link>
             <button type="button" onClick={()=>deleteItem(item.item_id)}>delete</button>
           </li>
       

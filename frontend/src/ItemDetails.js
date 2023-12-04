@@ -21,8 +21,11 @@ export const ItemDetails = (props) => {
       "description": editDescription,
       "quantity" : editQuantity
     }
+    console.log(editQuantity)
+    console.log(item.item_id)
     fetch(`http://localhost:8080/items/${itemID}`, {
       method: 'PATCH',
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,9 +36,13 @@ export const ItemDetails = (props) => {
 
   return (
     <>
-    <label for="itemName">Item: </label><input type="text" name="itemName" value={editItem} placeholder={editItem} onChange={(e)=>setEditItem(e.target.value)} disabled={editToggle}></input>
-    <label for="itemDesc">Description: </label><input type="textarea" name="itemDesc" value={editDescription} placeholder={editDescription} onChange={(e)=>setEditDescription(e.target.value)}  disabled={editToggle}></input>
-    <label for="itemQuantity">Quantity: </label><input type="number" name="itemQuantity" value={editQuantity} placeholder={editQuantity} onChange={(e)=>setEditQuantity(e.target.value)}  disabled={editToggle}></input>
+    {/* <h3>{editItem}</h3>
+    <h3>{editDescription}</h3>
+    <h3>{editQuantity}</h3> */}
+
+    <label>Item: </label><input type="text" value={editItem} placeholder={editItem} onChange={(e)=>setEditItem(e.target.value)} disabled={editToggle}></input>
+    <label>Description: </label><textarea value={editDescription} placeholder={editDescription} onChange={(e)=>setEditDescription(e.target.value)}  disabled={editToggle}></textarea>
+    <label>Quantity: </label><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e)=>setEditQuantity(e.target.value)}  disabled={editToggle}></input>
 
     <button type="button" onClick={()=>setEditToggle(!editToggle)}>edit</button>
     <button type="submit" onClick={()=>handleSubmit(item.item_id)}>submit</button>
