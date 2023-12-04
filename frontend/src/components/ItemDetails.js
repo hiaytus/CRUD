@@ -32,6 +32,7 @@ export const ItemDetails = (props) => {
       body: JSON.stringify(changedItem),
     })
     .then(()=>setEditToggle(!editToggle))
+    .then(()=>  navigate(-1))
   }
 
   return (

@@ -1,9 +1,9 @@
 import './App.css';
-import { InventoryList } from './InventoryList';
-import { AuthDetails } from './components/AuthDetails';
+import { InventoryList } from './components/InventoryList';
+import { AuthDetails } from './components/auth/AuthDetails';
 import { Route, Routes } from 'react-router-dom';
-import { UserInventory } from './UserInventory';
-import { ItemDetails } from './ItemDetails';
+import { UserInventory } from './components/UserInventory';
+import { ItemDetails } from './components/ItemDetails';
 
 function App() {
   return (

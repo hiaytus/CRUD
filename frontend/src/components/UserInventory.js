@@ -58,12 +58,14 @@ export const UserInventory = () => {
 
     <ul>
       {userInventory.map((item, index) => {
+        let str = item.description;
+        if(str.length > 100) str = str.substring(0,100) + `...`;
         return (
-          
+        
           <li key={index}>
             <Link to={`/item/details/${item.item_id}`} state={{item}}>
               Item: {item.item} <br></br>
-              Description: {item.description} <br></br>
+              Description: {str} <br></br>
               Quantity: {item.quantity} 
             </Link>
             <button type="button" onClick={()=>deleteItem(item.item_id)}>delete</button>

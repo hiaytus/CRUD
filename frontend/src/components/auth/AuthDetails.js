@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { SignIn } from "./auth/SignIn";
-import { SignUp } from "./auth/SignUp";
+import { SignIn } from "./SignIn";
+import { SignUp } from "./SignUp";
 import { UserInventory } from "../UserInventory";
 import { InventoryList } from "../InventoryList";
 

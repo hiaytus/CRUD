@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../firebase";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -8,8 +8,6 @@ export const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const userAuth = getAuth();
-  const user = userAuth.currentUser
 
   const signUp = (e) => {
     e.preventDefault();
