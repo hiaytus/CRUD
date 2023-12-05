@@ -7,7 +7,7 @@ import { AuthHeader } from "./auth/AuthHeader";
 
 export const InventoryList = () => {
   const [inventoryList, setInventoryList] = useState([])
-  const [pageReload, setPageReload] = useState(null)
+  // const [pageReload, setPageReload] = useState(null)
 
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export const InventoryList = () => {
     fetch('http://localhost:8080/')
       .then(res => res.json())
       .then(data => setInventoryList(data))
-  }, [pageReload])
+  }, [])
 
   return (
     <>

@@ -18,7 +18,7 @@ export const UserInventory = () => {
     fetch(`http://localhost:8080/items/user/${user.uid}`)
       .then(res => res.json())
       .then(data => setUserInventory(data))
-  }, [pageReload])
+  }, [user.uid, pageReload])
 
   const handleSubmit = () => {
     let newItem = {
