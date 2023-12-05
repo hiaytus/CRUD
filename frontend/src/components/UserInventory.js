@@ -76,13 +76,12 @@ export const UserInventory = () => {
             return (
 
               <li key={index}>
-                <Link to={`/item/details/${item.item_id}`} state={{ item }}>
+                <Link to={`/item/details/edit/${item.item_id}`} state={{ item }}>
                   <span className="title">Item: </span>{item.item} <br></br>
                   <span className="title">Description: </span> {str} <br></br>
                   <span className="title">Quantity: </span> {item.quantity}
                 </Link>
                 <br></br>
-                <button className="listButton" type="button"><Link to={`/item/details/edit/${item.item_id}`} state={{ item }}>edit</Link></button>
                 <button className="listButton" type="button" onClick={() => deleteItem(item.item_id)}>delete</button>
               </li>
 
