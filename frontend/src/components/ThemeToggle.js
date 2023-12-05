@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Toggle from "react-toggle";
-import { useMediaQuery } from "react-responsive";
-import "./CSS/index.css"
+import '../CSS/index.css';
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(true);
+  let theme = JSON.parse(localStorage.getItem('theme') || false);
+  const [isDark, setIsDark] = useState(theme);
 
   useEffect(() => {
     if (isDark) {
@@ -12,20 +12,15 @@ export const ThemeToggle = () => {
     } else {
       document.body.classList.remove('dark');
     }
-  }, [isDark]); 
-  
-  const systemPrefersDark = useMediaQuery(
-    {
-      query: "(prefers-color-scheme: dark)",
-    },
-    undefined,
-    (isSystemDark) => setIsDark(isSystemDark)
-  );
-
+  }, [isDark]);
+ 
   return (
     <Toggle
       checked={isDark}
-      onChange={({ target }) => setIsDark(target.checked)}
+      onChange={({ target }) => {
+        setIsDark(target.checked);
+        localStorage.setItem('theme', target.checked);
+      }}
       icons={{ checked: "🌙", unchecked: "🔆" }}
       aria-label="Dark mode toggle"
     />

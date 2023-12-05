@@ -3,7 +3,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import '../../CSS/AuthDetails.css';
-import { ThemeToggle } from "../../ThemeToggle";
+import { ThemeToggle } from "../ThemeToggle";
 
 export const AuthHeader = () => {
   const navigate = useNavigate();
