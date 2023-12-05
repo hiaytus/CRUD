@@ -24,7 +24,6 @@ CREATE database inventory;
 ```
 7. In the application terminal, cd into backend, then install npm and run migrations and seeding
 ```
-npm init 
 npx knex migrate:latest
 npx knex seed:run
 npm start
@@ -33,6 +32,8 @@ Backend should be running on http://localhost:8080
 
 8. Cd into frontend
 ```
+npm init 
+npm install
 npm start
 ```
 9. Frontend should be running on http://localhost:3000
