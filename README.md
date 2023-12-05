@@ -30,14 +30,14 @@ npx knex migrate:latest
 npx knex seed:run
 npm start
 ```
-### Backend running on http://localhost:8080
+- Backend running on http://localhost:8080
 
 9. Cd into frontend
 ```
 npm install
 npm start
 ```
-### Frontend running on http://localhost:3000
+- Frontend running on http://localhost:3000
 
 ### User should be able to:
 - Guest view for public inventory
