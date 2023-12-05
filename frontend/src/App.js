@@ -4,9 +4,14 @@ import { UserInventory } from './components/UserInventory';
 import { ItemDetails } from './components/ItemDetails';
 import { EditDetails } from './components/EditDetails';
 import { InventoryList } from './components/InventoryList';
+import './CSS/index.css'
+
 
 function App() {
+
+  
   return (
+    <>
 <Routes>
   <Route path="/" element={<AuthDetails />}/>
   <Route path="/public" element={<InventoryList />}/>
@@ -14,6 +19,7 @@ function App() {
   <Route path="/item/details/:id" element={<ItemDetails />}/>
   <Route path="/item/details/edit/:id" element={<EditDetails />}/>
 </Routes>
+    </>
   );
 }
 

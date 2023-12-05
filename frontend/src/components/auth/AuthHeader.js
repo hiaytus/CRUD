@@ -3,6 +3,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import '../../CSS/AuthDetails.css';
+import { ThemeToggle } from "../../ThemeToggle";
 
 export const AuthHeader = () => {
   const navigate = useNavigate();
@@ -27,18 +28,10 @@ export const AuthHeader = () => {
   }
 
   return (
-    <>
-      {authUser ?
-        <>
-          <div className="userinfo">
-            <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3>
-          </div>
-        </>
-        :
-        <div className="userinfo">
-          <h3> Signed Out </h3>
-        </div>
-      }
-    </>
+
+    <div className="userinfo">
+      {authUser ?<><h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3> <ThemeToggle/></>  : <h3> Signed Out </h3>}
+    </div>
+
   )
 }

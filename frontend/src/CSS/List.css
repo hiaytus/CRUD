@@ -18,7 +18,7 @@ li {
   border: solid 1px black;
   margin: 20px;
   padding: 20px;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--color-foreground);
   justify-content: space-evenly;
   min-width: 150px;
   flex-wrap:wrap;
@@ -29,7 +29,7 @@ li {
   border: solid 1px black;
   margin: 20px;
   padding: 20px;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--color-foreground);
   min-width: 150px;
 }
 
@@ -49,12 +49,21 @@ li {
   margin-left:2%;
 }
 
+.view a {
+  color: black;
+}
+
+input {
+  /* background-color: var(--input-background); */
+  /* color:var(--text-color); */
+}
 textarea{
 height: 200px; 
 width: 700px;
 max-height: 300px;
 max-width: 700px;
 vertical-align: top;
+/* background-color:  var(--input-background); */
 }
 
 .itemList {
@@ -62,7 +71,7 @@ vertical-align: top;
   border: solid 1px black;
   margin: 20px;
   padding: 20px;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--color-foreground);
   font-size: large;
   word-wrap: break-word;
 }
@@ -78,10 +87,10 @@ vertical-align: top;
 }
 
 a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(126, 126, 126);
+  color: var(--text-hover);
 }
