@@ -1,6 +1,6 @@
 # CRUD
 
-SETTING UP APP
+### SETUP
 1. Git clone repo: https://github.com/hiaytus/CRUD
 2. Run docker:
 ```
@@ -22,23 +22,24 @@ CREATE database inventory;
 ```
 \c inventory
 ```
-7. In the application terminal, cd into backend, then install npm and run migrations and seeding
+7. Cd into the local CRUD repo and code . 
+
+8. cd into backend, then install npm and run migrations and seeding
 ```
 npx knex migrate:latest
 npx knex seed:run
 npm start
 ```
-Backend should be running on http://localhost:8080
+### Backend running on http://localhost:8080
 
-8. Cd into frontend
+9. Cd into frontend
 ```
-npm init 
 npm install
 npm start
 ```
-9. Frontend should be running on http://localhost:3000
+### Frontend running on http://localhost:3000
 
-10. User should be able to:
+### User should be able to:
 - Guest view for public inventory
 - Clicking an item brings up detailed view
 - Create an account
