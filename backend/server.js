@@ -77,6 +77,7 @@ app.post('/users', async(req, res) => {
       uid: req.body.uid,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
+      username: req.body.username
     })
     .then(() => {
       knex("users")

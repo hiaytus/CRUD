@@ -11,6 +11,7 @@ export const SignUp = () => {
 
   const signUp = (e) => {
     e.preventDefault();
+    console.log(email)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         let newUser = {
