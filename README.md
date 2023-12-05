@@ -28,15 +28,14 @@ npm init
 npx knex migrate:latest
 npx knex seed:run
 npm start
-
 ```
-Backend should be running on localhost:8080
+Backend should be running on http://localhost:8080
 
 8. Cd into frontend
 ```
 npm start
 ```
-9. Frontend should be running on localhost:3000
+9. Frontend should be running on http://localhost:3000
 
 10. User should be able to:
 - Guest view for public inventory
