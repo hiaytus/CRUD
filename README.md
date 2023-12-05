@@ -22,7 +22,11 @@ CREATE database inventory;
 ```
 \c inventory
 ```
-7. Cd into the local CRUD repo and code . 
+7. Cd into the local CRUD repo and open it
+```
+cd CRUD
+code .
+```
 
 8. cd into backend, then install npm and run migrations and seeding
 ```
