@@ -58,10 +58,10 @@ export const UserInventory = () => {
     <div className="container-list">
       <div className="section-list">
         <div className="post">
-          <div className="title">Item: </div> <input type="text" placeholder="new item..." value={item} onChange={(e) => { setItem(e.target.value) }}></input>
+          <div className="title">Item: </div> <input type="text" maxLength="250" placeholder="new item..." value={item} onChange={(e) => { setItem(e.target.value) }}></input>
         </div>
         <div className="post">
-          <div className="title">Description: </div> <input type="text" placeholder="description..." value={description} onChange={(e) => setDescription(e.target.value)}></input>
+          <div className="title">Description: </div> <input type="text" maxLength="1000" placeholder="description..." value={description} onChange={(e) => setDescription(e.target.value)}></input>
         </div>
         <div className="post">
           <div className="title">Quantity: </div><input type="number" placeholder="quantity..." value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>

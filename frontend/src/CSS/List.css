@@ -54,3 +54,18 @@ textarea{
 max-height: 300px; 
 max-width: 250px;
 }
+
+.itemList {
+  overflow:auto;
+  border: solid 1px black;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(241, 241, 241);
+  font-size: large;
+  word-wrap: break-word;
+  /* justify-content: space-evenly; */
+}
+
+.itemBold{
+  font-weight: 700;
+}

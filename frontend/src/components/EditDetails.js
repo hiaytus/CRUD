@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ItemDetails } from "./ItemDetails";
+import { AuthHeader } from "./auth/AuthHeader";
 import "../CSS/List.css"
 
 export const EditDetails = (props) => {
@@ -40,14 +41,15 @@ export const EditDetails = (props) => {
   return (
     <>
       {/* <ItemDetails/> */}
+      <AuthHeader/>
       <div className="container-list">
         <h3>Edit Item</h3>
         <div className="section-list">
           <div className="editItem">
-            <div className="title">Item: </div> <input type="text" value={editItem} placeholder={editItem} onChange={(e) => setEditItem(e.target.value)} disabled={editToggle}></input>
+            <div className="title">Item: </div> <input type="text"  maxLength="250" value={editItem} placeholder={editItem} onChange={(e) => setEditItem(e.target.value)} disabled={editToggle}></input>
           </div>
           <div className="editItem">
-            <div className="title">Description: </div> <textarea value={editDescription} placeholder={editDescription} onChange={(e) => setEditDescription(e.target.value)} disabled={editToggle}></textarea>
+            <div className="title">Description: </div> <textarea maxLength="1000" value={editDescription} placeholder={editDescription} onChange={(e) => setEditDescription(e.target.value)} disabled={editToggle}></textarea>
           </div>
           <div className="editItem">
             <div className="title">Quantity: </div><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e) => setEditQuantity(e.target.value)} disabled={editToggle}></input>
