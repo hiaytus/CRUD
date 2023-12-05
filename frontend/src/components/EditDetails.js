@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ItemDetails } from "./ItemDetails";
+import "../CSS/List.css"
 
 export const EditDetails = (props) => {
   const location = useLocation();
@@ -7,19 +9,19 @@ export const EditDetails = (props) => {
   const { item = 'defaultValue' } = location.state || {}
 
   const [editItem, setEditItem] = useState(item.item)
-  const [editQuantity, setEditQuantity] = useState(item.quantity) 
-  const [editDescription, setEditDescription] = useState(item.description) 
+  const [editQuantity, setEditQuantity] = useState(item.quantity)
+  const [editDescription, setEditDescription] = useState(item.description)
 
-  const [editToggle, setEditToggle] = useState(true) 
+  const [editToggle, setEditToggle] = useState(true)
 
   // const [inventoryList, setInventoryList] = useState([]) 
   // const [pageReload, setPageReload] = useState(null) 
 
   const handleSubmit = (itemID) => {
     let changedItem = {
-      "item" : editItem,
+      "item": editItem,
       "description": editDescription,
-      "quantity" : editQuantity
+      "quantity": editQuantity
     }
     console.log(editQuantity)
     console.log(item.item_id)
@@ -31,23 +33,35 @@ export const EditDetails = (props) => {
       },
       body: JSON.stringify(changedItem),
     })
-    .then(()=>setEditToggle(!editToggle))
-    .then(()=>  navigate(-1))
+      .then(() => setEditToggle(!editToggle))
+      .then(() => navigate(-1))
   }
 
   return (
     <>
-    {/* <h3>{editItem}</h3>
-    <h3>{editDescription}</h3>
-    <h3>{editQuantity}</h3> */}
+      {/* <ItemDetails/> */}
+      <div className="container-list">
+        <h3>Edit Item</h3>
+        <div className="section-list">
+          <div className="editItem">
+            <div className="title">Item: </div> <input type="text" value={editItem} placeholder={editItem} onChange={(e) => setEditItem(e.target.value)} disabled={editToggle}></input>
+          </div>
+          <div className="editItem">
+            <div className="title">Description: </div> <textarea value={editDescription} placeholder={editDescription} onChange={(e) => setEditDescription(e.target.value)} disabled={editToggle}></textarea>
+          </div>
+          <div className="editItem">
+            <div className="title">Quantity: </div><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e) => setEditQuantity(e.target.value)} disabled={editToggle}></input>
+          </div>
+          {/* <div className="editItem">
+            <button type="button" onClick={() => setEditToggle(!editToggle)}>edit</button>
+            <button type="submit" onClick={() => handleSubmit(item.item_id)}>submit</button>
 
-    <label>Item: </label><input type="text" value={editItem} placeholder={editItem} onChange={(e)=>setEditItem(e.target.value)} disabled={editToggle}></input>
-    <label>Description: </label><textarea value={editDescription} placeholder={editDescription} onChange={(e)=>setEditDescription(e.target.value)}  disabled={editToggle}></textarea>
-    <label>Quantity: </label><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e)=>setEditQuantity(e.target.value)}  disabled={editToggle}></input>
-
-    <button type="button" onClick={()=>setEditToggle(!editToggle)}>edit</button>
-    <button type="submit" onClick={()=>handleSubmit(item.item_id)}>submit</button>
-    <button type="button" onClick={() => navigate(-1)}>return</button>
+          </div> */}
+        </div>
+        <button type="button" onClick={() => setEditToggle(!editToggle)}>edit</button>
+        <button type="submit" onClick={() => handleSubmit(item.item_id)}>submit</button>
+        <button type="button" onClick={() => navigate(-1)}>return</button>
+      </div>
     </>
 
   )

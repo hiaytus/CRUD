@@ -7,3 +7,50 @@ li {
 .title {
   font-weight: 700;
 }
+
+.container-list {
+  margin:auto;
+  padding:2% 0 2% 0;
+  /* min-width: 700px; */
+  max-width: 900px;
+  /* display:flex;
+  flex-direction: column; */
+}
+.section-list {
+  display:flex;
+  border: solid 1px black;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(241, 241, 241);
+  justify-content: space-evenly;
+
+}
+
+.inventory-list {
+  border: solid 1px black;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(241, 241, 241);
+
+}
+
+.post {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.listButton {
+  margin-top:3px;
+}
+
+.view{
+  display:flex;
+  justify-content: flex-end;
+  margin-left:2%;
+}
+
+textarea{
+max-height: 300px; 
+max-width: 250px;
+}

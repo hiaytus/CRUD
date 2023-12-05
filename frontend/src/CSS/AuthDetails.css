@@ -6,15 +6,16 @@ body {
 }
 
 .container {
-  margin:10%;
-  min-width: 700px;
+  /* min-width: 700px; */
   max-width: 900px;
+  margin:auto;
+  padding:2% 0 2% 0;
 }
 
 .section {
   border: solid 1px black;
   margin: 20px;
-  padding: 20px;
+  padding: 10px 30px 30px 30px;
   background-color: rgb(241, 241, 241);
   justify-content: center;
   align-items: center;
@@ -37,4 +38,10 @@ body {
 
 .signButton{
   margin-top:15px;
+}
+
+.userinfo {
+  display:flex;
+  padding-left:50px;;
+  background-color: rgb(230, 230, 230);
 }

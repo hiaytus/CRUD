@@ -37,12 +37,17 @@ export const ItemDetails = (props) => {
 
   return (
     <>
-    <h3>Item: {item.item}</h3>
-    <h3>Description: {item.description}</h3>
-    <h3>Quantity: {item.quantity}</h3>
-    <button type="button" onClick={() => navigate(-1)}>return</button>
+      <div className="container-list">
+        <h3>Item Details</h3>
+        <div className="section-list">
+        <div className="title">Item: {item.item}</div>
+        <div className="title">Description: {item.description}</div>
+        <div className="title"><h3>Quantity: {item.quantity}</h3></div>
+        </div>
+        <button type="button" onClick={() => navigate(-1)}>return</button>
+      </div>
 
-    {/* <label>Item: </label><input type="text" value={editItem} placeholder={editItem} onChange={(e)=>setEditItem(e.target.value)} disabled={editToggle}></input>
+      {/* <label>Item: </label><input type="text" value={editItem} placeholder={editItem} onChange={(e)=>setEditItem(e.target.value)} disabled={editToggle}></input>
     <label>Description: </label><textarea value={editDescription} placeholder={editDescription} onChange={(e)=>setEditDescription(e.target.value)}  disabled={editToggle}></textarea>
     <label>Quantity: </label><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e)=>setEditQuantity(e.target.value)}  disabled={editToggle}></input>
 

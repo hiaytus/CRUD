@@ -32,11 +32,13 @@ export const AuthDetails = () => {
   }
 
   return (
-    <div> {authUser ?
+    <> 
+    {authUser ?
       <>
+       <div className="userinfo">
         {/* <h2>{user.uid}</h2> */}
-        <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3>
-
+          <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3>
+        </div>
         <UserInventory />
       </>
       :
@@ -54,6 +56,6 @@ export const AuthDetails = () => {
         </div>
       </div>
     }
-    </div>
+    </>
   )
 }
