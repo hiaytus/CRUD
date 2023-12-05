@@ -28,7 +28,10 @@ export const SignUp = () => {
             body: JSON.stringify(newUser),
           })
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        alert('Please verify input fields.\nCheck for valid email.\nPassword must be 8 characters in length.')
+        console.log(error)
+      });
   }
 
   return (

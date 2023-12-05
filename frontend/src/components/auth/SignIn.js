@@ -10,7 +10,10 @@ export const SignIn = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => console.log(userCredentials))
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        alert('Incorrect username/password');
+        console.log(error);
+      })
   }
 
   return (
