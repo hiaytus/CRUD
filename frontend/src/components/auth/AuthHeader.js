@@ -20,7 +20,7 @@ export const AuthHeader = () => {
     return () => {
       listen();
     }
-  }, [auth]);  // prev empty bracket, now auth
+  }, []);  // prev empty bracket, now auth
 
   const userSignOut = () => {
     signOut(auth).then(() => { navigate(`/`) })
