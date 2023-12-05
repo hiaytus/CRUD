@@ -55,5 +55,6 @@ npm start
 - Delete items 
 - Clicking item brings up detailed view with edit toggle function
 - View all for public inventory 
+- Dark mode toggle
 - Return for navigation
 - Log out
