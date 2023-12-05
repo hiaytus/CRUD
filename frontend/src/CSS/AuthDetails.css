@@ -6,7 +6,6 @@ body {
 }
 
 .container {
-  /* min-width: 700px; */
   max-width: 900px;
   margin:auto;
   padding:2% 0 2% 0;
@@ -23,7 +22,6 @@ body {
 
 #signInButton {
   display:flex;
-  /* margin-left:500px; */
 }
 
 .sign-in-container, .sign-up-container {

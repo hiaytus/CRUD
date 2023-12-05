@@ -11,10 +11,7 @@ li {
 .container-list {
   margin:auto;
   padding:2% 0 2% 0;
-  /* min-width: 700px; */
   max-width: 900px;
-  /* display:flex;
-  flex-direction: column; */
 }
 .section-list {
   display:flex;
@@ -23,6 +20,8 @@ li {
   padding: 20px;
   background-color: rgb(241, 241, 241);
   justify-content: space-evenly;
+  min-width: 150px;
+  flex-wrap:wrap;
 
 }
 
@@ -31,7 +30,7 @@ li {
   margin: 20px;
   padding: 20px;
   background-color: rgb(241, 241, 241);
-
+  min-width: 150px;
 }
 
 .post {
@@ -66,7 +65,6 @@ vertical-align: top;
   background-color: rgb(241, 241, 241);
   font-size: large;
   word-wrap: break-word;
-  /* justify-content: space-evenly; */
 }
 
 .itemBold{
@@ -77,4 +75,13 @@ vertical-align: top;
   display:flex;
   justify-content: flex-end;
   padding-right:2%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(126, 126, 126);
 }

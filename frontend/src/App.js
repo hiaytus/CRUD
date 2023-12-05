@@ -1,4 +1,3 @@
-import './App.css';
 import { AuthDetails } from './components/auth/AuthDetails';
 import { Route, Routes } from 'react-router-dom';
 import { UserInventory } from './components/UserInventory';
@@ -8,7 +7,6 @@ import { InventoryList } from './components/InventoryList';
 
 function App() {
   return (
-<>
 <Routes>
   <Route path="/" element={<AuthDetails />}/>
   <Route path="/public" element={<InventoryList />}/>
@@ -16,8 +14,6 @@ function App() {
   <Route path="/item/details/:id" element={<ItemDetails />}/>
   <Route path="/item/details/edit/:id" element={<EditDetails />}/>
 </Routes>
-</>
-  
   );
 }
 

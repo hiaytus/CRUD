@@ -8,10 +8,8 @@ export const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-
   const signUp = (e) => {
     e.preventDefault();
-    console.log(email)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         let newUser = {
@@ -31,7 +29,6 @@ export const SignUp = () => {
           })
       })
       .catch((error) => console.log(error));
-
   }
 
   return (
@@ -40,16 +37,16 @@ export const SignUp = () => {
       <div className="sign-up-container">
         <form onSubmit={signUp}>
           <div className="signSection">
-            <label>First Name: </label><input type="text" placeholder='Enter first name...' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
+            <label>First Name:</label><input type="text" placeholder='Enter first name...' value={firstName} onChange={(e) => setFirstName(e.target.value)}></input>
           </div>
           <div className="signSection">
-            <label>Last Name: </label><input type="text" placeholder='Enter last name...' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
+            <label>Last Name:</label><input type="text" placeholder='Enter last name...' value={lastName} onChange={(e) => setLastName(e.target.value)}></input>
           </div>
           <div className="signSection">
             <label>Email:</label><input type="email" placeholder='Enter email...' value={email} onChange={(e) => setEmail(e.target.value)}></input>
           </div>
           <div className="signSection">
-            <label>Password: </label><input type="password" minLength={8} placeholder='Enter password...' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <label>Password:</label><input type="password" autoComplete="off" minLength={8} placeholder='Enter password...' value={password} onChange={(e) => setPassword(e.target.value)}></input>
           </div>
           <button className="signButton" type="submit">Create Account</button>
         </form>

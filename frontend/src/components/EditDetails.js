@@ -39,7 +39,7 @@ export const EditDetails = (props) => {
         <h3>Item Details <button type="button" onClick={() => navigate(-1)}>return</button></h3>
         <div className="itemList"><span className="itemBold">Item:</span><input type="text" maxLength="250" value={editItem} placeholder={editItem} onChange={(e) => setEditItem(e.target.value)} disabled={editToggle}></input></div>
         <div className="itemList"><span className="itemBold">Description:</span><textarea maxLength="1000" value={editDescription} placeholder={editDescription} onChange={(e) => setEditDescription(e.target.value)} disabled={editToggle}></textarea></div>
-        <div className="itemList"><span className="itemBold">Quantity:</span><input type="number" value={editQuantity} placeholder={editQuantity} onChange={(e) => setEditQuantity(e.target.value)} disabled={editToggle}></input></div>
+        <div className="itemList"><span className="itemBold">Quantity:</span><input type="number" min="0" value={editQuantity} placeholder={editQuantity} onChange={(e) => setEditQuantity(e.target.value)} disabled={editToggle}></input></div>
         <div className="buttonPadding">
           <button type="button" onClick={() => setEditToggle(!editToggle)}>edit</button>
           <button type="submit" onClick={() => handleSubmit(item.item_id)}>submit</button>

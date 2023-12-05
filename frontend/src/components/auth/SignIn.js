@@ -19,10 +19,10 @@ export const SignIn = () => {
       <div className="sign-in-container">
         <form onSubmit={signIn}>
           <div className='signSection'>
-            <label>username: </label><input type="email" placeholder='Enter email...' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <label>username:</label><input type="email" placeholder='Enter email...' value={email} onChange={(e) => setEmail(e.target.value)}></input>
           </div>
           <div className='signSection'>
-            <label>password: </label><input type="password" placeholder="Enter password..." value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <label>password:</label><input type="password" autoComplete="off" placeholder="Enter password..." value={password} onChange={(e) => setPassword(e.target.value)}></input>
           </div>
           <button className="signButton" type="submit">Login</button>
         </form>

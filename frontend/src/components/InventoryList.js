@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../CSS/List.css"
 import { useNavigate } from "react-router-dom";
 import { AuthHeader } from "./auth/AuthHeader";
+import "../CSS/List.css"
 
 
 export const InventoryList = () => {

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
 import '../../CSS/AuthDetails.css';
 
 export const AuthHeader = () => {
-  const auth = getAuth();
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
 

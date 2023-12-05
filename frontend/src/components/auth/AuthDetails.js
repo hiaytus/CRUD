@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
 import { UserInventory } from "../UserInventory";
 import { AuthHeader } from "./AuthHeader";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase";
 import '../../CSS/AuthDetails.css';
 
 export const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
-  const auth = getAuth();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -34,9 +34,7 @@ export const AuthDetails = () => {
         </>
         :
         <>
-          <div className="userinfo">
-            <h3>Signed Out</h3>
-          </div>
+          <div className="userinfo"><h3>Signed Out</h3></div>
           <div className="container">
             <div className="section">
               <SignIn />

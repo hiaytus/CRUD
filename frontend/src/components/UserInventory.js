@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { auth } from "../firebase";
 import '../CSS/List.css'
+
 export const UserInventory = () => {
   const [userInventory, setUserInventory] = useState([])
   const [pageReload, setPageReload] = useState(null)
-
-  const auth = getAuth();
-  const user = auth.currentUser
-  // const [userID, setUserID] = useState(user.uid)  // SET USER ID BASED ON LOG IN
-
   const [item, setItem] = useState('')
   const [quantity, setQuantity] = useState(0)
   const [description, setDescription] = useState('')
+
+  const user = auth.currentUser
 
   useEffect(() => {
     fetch(`http://localhost:8080/items/user/${user.uid}`)
@@ -64,7 +62,7 @@ export const UserInventory = () => {
           <div className="title">Description: </div> <input type="text" maxLength="1000" placeholder="description..." value={description} onChange={(e) => setDescription(e.target.value)}></input>
         </div>
         <div className="post">
-          <div className="title">Quantity: </div><input type="number" placeholder="quantity..." value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>
+          <div className="title">Quantity: </div><input type="number" min="0" placeholder="quantity..." value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>
         </div>
         <button type="submit" onClick={handleSubmit}>Add Item</button>
       </div>
