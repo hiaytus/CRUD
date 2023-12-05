@@ -20,8 +20,7 @@ export const EditDetails = (props) => {
       "description": editDescription,
       "quantity": editQuantity
     }
-    console.log(editQuantity)
-    console.log(item.item_id)
+
     fetch(`http://localhost:8080/items/${itemID}`, {
       method: 'PATCH',
       mode: "cors",
@@ -30,7 +29,6 @@ export const EditDetails = (props) => {
       },
       body: JSON.stringify(changedItem),
     })
-      .then(() => setEditToggle(!editToggle))
       .then(() => navigate(-1))
   }
 

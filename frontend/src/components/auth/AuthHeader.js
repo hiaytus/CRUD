@@ -3,11 +3,10 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import '../../CSS/AuthDetails.css';
 
-
 export const AuthHeader = () => {
-  const [authUser, setAuthUser] = useState(null);
   const auth = getAuth();
   const navigate = useNavigate();
+  const [authUser, setAuthUser] = useState(null);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -21,7 +20,8 @@ export const AuthHeader = () => {
     return () => {
       listen();
     }
-  }, []);
+  }, [auth]);  // prev empty bracket, now auth
+
   const userSignOut = () => {
     signOut(auth).then(() => { navigate(`/`) })
   }

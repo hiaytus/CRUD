@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
 import { UserInventory } from "../UserInventory";
-import { InventoryList } from "../InventoryList";
 import { AuthHeader } from "./AuthHeader";
+import { Link } from "react-router-dom";
 import '../../CSS/AuthDetails.css';
-
 
 export const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -36,19 +35,16 @@ export const AuthDetails = () => {
         :
         <>
           <div className="userinfo">
-            <h3> Signed Out </h3>
+            <h3>Signed Out</h3>
           </div>
-          <div class="container">
-            <div class="section">
+          <div className="container">
+            <div className="section">
               <SignIn />
             </div>
-            <div class="section">
+            <div className="section">
               <SignUp />
             </div>
-            <div class="section">
-              <h3>Public Inventory</h3>
-              <InventoryList />
-            </div>
+            <Link to="/public"><button className="view">Guest View</button></Link>
           </div>
         </>
       }
