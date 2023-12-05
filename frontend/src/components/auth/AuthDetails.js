@@ -23,7 +23,7 @@ export const AuthDetails = () => {
     return () => {
       listen();
     }
-  }, []); // prev empty array
+  }, []); 
 
   return (
     <>

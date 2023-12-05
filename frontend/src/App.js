@@ -9,17 +9,14 @@ import './CSS/index.css'
 
 function App() {
 
-  
   return (
-    <>
-<Routes>
-  <Route path="/" element={<AuthDetails />}/>
-  <Route path="/public" element={<InventoryList />}/>
-  <Route path="/items/user" element={<UserInventory />}/>
-  <Route path="/item/details/:id" element={<ItemDetails />}/>
-  <Route path="/item/details/edit/:id" element={<EditDetails />}/>
-</Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<AuthDetails />} />
+      <Route path="/public" element={<InventoryList />} />
+      <Route path="/items/user" element={<UserInventory />} />
+      <Route path="/item/details/:id" element={<ItemDetails />} />
+      <Route path="/item/details/edit/:id" element={<EditDetails />} />
+    </Routes>
   );
 }
 

@@ -9,7 +9,7 @@ export const ItemDetails = (props) => {
 
   return (
     <>
-    <AuthHeader/>
+      <AuthHeader />
       <div className="container-list">
         <h3>Item Details</h3>
         <div className="itemList"><span className="itemBold">Item: </span>{item.item} </div>

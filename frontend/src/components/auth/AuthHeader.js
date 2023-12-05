@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import '../../CSS/AuthDetails.css';
 import { ThemeToggle } from "../ThemeToggle";
+import '../../CSS/AuthDetails.css';
 
 export const AuthHeader = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export const AuthHeader = () => {
     return () => {
       listen();
     }
-  }, []);  // prev empty bracket, now auth
+  }, []);
 
   const userSignOut = () => {
     signOut(auth).then(() => { navigate(`/`) })

@@ -19,7 +19,7 @@ export const InventoryList = () => {
 
   return (
     <>
-    <AuthHeader/>
+      <AuthHeader />
       <div className="container-list">
         <h3>Public Inventory <span><button type="button" onClick={() => navigate(-1)}>return</button></span></h3>
         <div className="section-list">
@@ -41,8 +41,8 @@ export const InventoryList = () => {
               )
             })}
           </ul>
-          </div>
-          </div>
+        </div>
+      </div>
     </>
   )
 }
