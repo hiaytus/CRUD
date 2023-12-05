@@ -44,4 +44,10 @@ body {
   display:flex;
   padding-left:50px;
   background-color: var(--header-background);
+  justify-content: space-between;
+}
+
+.toggle {
+  padding:20px;
+  margin-right:30px;
 }
