@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toggle from "react-toggle";
-import "../index.css"
+import "../CSS/index.css"
 
 export const ThemeToggle = () => {
   let theme = JSON.parse(localStorage.getItem('theme') || false);
