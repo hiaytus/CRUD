@@ -48,7 +48,7 @@ npm start
 - Clicking an item brings up detailed view
 - Create an account
 - Log into an existing account 
-  - username: dog@gmail.com
+  - username: dog@gmail.com / test@gmail.com
   - password: password
 - Logged in users have a personal inventory list
 - Add items
