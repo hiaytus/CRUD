@@ -16,12 +16,12 @@ export const UserInventory = () => {
     fetch(`http://localhost:8080/items/user/${user.uid}`)
       .then(res => res.json())
       .then(data => setUserInventory(data))
-      .then(()=>{
+      .then(() => {
         fetch(`http://localhost:8080/users/${user.uid}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setName( data[0].firstName.charAt(0).toUpperCase() + data[0].firstName.slice(1))
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            setName(data[0].firstName.charAt(0).toUpperCase() + data[0].firstName.slice(1))
+          })
       })
   }, [user.uid, pageReload])
 
@@ -79,7 +79,7 @@ export const UserInventory = () => {
         <button type="submit" onClick={handleSubmit}>Add Item</button>
       </div>
       <div className="inventory-list">
-      <div className="nameTitle"><h3>{`${name}'s Inventory`}</h3></div>
+        <div className="nameTitle"><h3>{`${name}'s Inventory`}</h3></div>
         <ul>
           {userInventory.map((item, index) => {
             let str = item.description;
