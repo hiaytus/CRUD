@@ -23,13 +23,13 @@ export const AuthDetails = () => {
     return () => {
       listen();
     }
-  }, []); 
+  }, []);
 
   return (
     <>
       {authUser ?
         <>
-          <AuthHeader/>
+          <AuthHeader />
           <UserInventory />
         </>
         :

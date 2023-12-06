@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toggle from "react-toggle";
-import '../CSS/index.css';
+import "../index.css"
 
 export const ThemeToggle = () => {
   let theme = JSON.parse(localStorage.getItem('theme') || false);
@@ -13,7 +13,7 @@ export const ThemeToggle = () => {
       document.body.classList.remove('dark');
     }
   }, [isDark]);
- 
+
   return (
     <Toggle
       checked={isDark}
