@@ -31,12 +31,12 @@ export const AuthHeader = () => {
 
     <div className="userinfo">
       {authUser ?
-      <>
-        <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3> 
-        <div className="toggle">
-        <ThemeToggle/>
-        </div>
-      </>  
+        <>
+          <h3>{`Signed in as:  ${authUser.email}`} <button onClick={userSignOut}>Log out</button></h3>
+          <div className="toggle">
+            <ThemeToggle />
+          </div>
+        </>
         : <h3> Signed Out </h3>}
     </div>
 
