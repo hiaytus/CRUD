@@ -11,6 +11,8 @@ body {
   --text-color: black;
   --text-hover: rgb(121, 121, 121);
   --header-background: #e7e7e7;
+  --scollbar:rgb(199, 199, 199);
+  --scollbar-hover:rgb(182, 182, 182);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +22,9 @@ body {
     --color-foreground: #2f3136;
     --text-color: rgb(192, 192, 192);
     --text-hover: rgb(105, 105, 105);
+    --scollbar:rgb(92, 92, 92);
+    --scollbar-hover:rgb(77, 77, 77);
+    
 
   }
 }
