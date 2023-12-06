@@ -9,13 +9,23 @@ export const UserInventory = () => {
   const [item, setItem] = useState('')
   const [quantity, setQuantity] = useState(0)
   const [description, setDescription] = useState('')
-
+  const [name, setName] = useState('')
   const user = auth.currentUser
 
   useEffect(() => {
     fetch(`http://localhost:8080/items/user/${user.uid}`)
       .then(res => res.json())
       .then(data => setUserInventory(data))
+      .then(()=>{
+        fetch(`http://localhost:8080/users/${user.uid}`)
+        .then((res) => res.json())
+        .then((data) => {
+          let word = data[0].firstName;
+          let first = word.charAt(0).toUpperCase();
+          let rest = word.slice(1)
+          setName(first + rest)
+        })
+      })
   }, [user.uid, pageReload])
 
   const handleSubmit = () => {
@@ -67,6 +77,7 @@ export const UserInventory = () => {
         <button type="submit" onClick={handleSubmit}>Add Item</button>
       </div>
       <div className="inventory-list">
+      <div className="nameTitle"><h3>{`${name}'s Inventory`}</h3></div>
         <ul>
           {userInventory.map((item, index) => {
             let str = item.description;

@@ -46,6 +46,12 @@ app.get('/users', (req, res) =>{
     .then(data => res.status(200).json(data))
 })
 
+app.get('/users/:id', (req, res) =>{
+  knex('users')
+    .where('uid', req.params.id)
+    .select('*')
+    .then(data => res.status(200).json(data))
+})
 
 // POST 
 app.post('/items', async(req, res) => {
