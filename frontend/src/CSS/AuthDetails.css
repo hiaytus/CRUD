@@ -42,6 +42,7 @@ body {
 
 .userinfo {
   display:flex;
+  height:65px;
   padding-left:50px;
   background-color: var(--header-background);
   justify-content: space-between;

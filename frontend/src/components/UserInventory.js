@@ -88,7 +88,7 @@ export const UserInventory = () => {
         </ul>
       </div>
 
-      <button className="view"><Link to={`/public`}>View All</Link></button>
+      <Link to={`/public`}><button className="view">View All</button></Link>
     </div>
   )
 }
