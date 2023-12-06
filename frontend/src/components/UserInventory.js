@@ -20,10 +20,7 @@ export const UserInventory = () => {
         fetch(`http://localhost:8080/users/${user.uid}`)
         .then((res) => res.json())
         .then((data) => {
-          let word = data[0].firstName;
-          let first = word.charAt(0).toUpperCase();
-          let rest = word.slice(1)
-          setName(first + rest)
+          setName( data[0].firstName.charAt(0).toUpperCase() + data[0].firstName.slice(1))
         })
       })
   }, [user.uid, pageReload])
@@ -42,7 +39,12 @@ export const UserInventory = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newItem),
+        body: JSON.stringify({
+          "item": item,
+          "description": description,
+          "quantity": quantity,
+          "uid": user.uid
+        }),
       })
       .then(() => setUserInventory((prev) => [...prev, newItem]))
       .then(() => {
@@ -83,7 +85,6 @@ export const UserInventory = () => {
             let str = item.description;
             if (str.length > 100) str = str.substring(0, 100) + `...`;
             return (
-
               <li key={index}>
                 <Link to={`/item/details/edit/${item.item_id}`} state={{ item }}>
                   <span className="title">Item: </span>{item.item} <br></br>
@@ -93,12 +94,10 @@ export const UserInventory = () => {
                 <br></br>
                 <button className="listButton" type="button" onClick={() => deleteItem(item.item_id)}>delete</button>
               </li>
-
             )
           })}
         </ul>
       </div>
-
       <Link to={`/public`}><button className="view">View All</button></Link>
     </div>
   )

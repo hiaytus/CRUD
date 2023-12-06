@@ -12,12 +12,6 @@ export const SignUp = () => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        let newUser = {
-          "uid": userCredentials.user.uid,
-          "firstName": firstName,
-          "lastName": lastName,
-          "username": email
-        }
         fetch("http://localhost:8080/users",
           {
             method: "POST",
@@ -25,12 +19,17 @@ export const SignUp = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(newUser),
+            body: JSON.stringify({
+              "uid": userCredentials.user.uid,
+              "firstName": firstName,
+              "lastName": lastName,
+              "username": email
+            }),
           })
       })
       .catch((error) => {
-        alert('Please verify input fields.\nCheck for valid email.\nPassword must be 8 characters in length.')
-        console.log(error)
+        alert('Please verify input fields.\nCheck for valid email.\nPassword must be 8 characters in length.');
+        console.log(error);
       });
   }
 

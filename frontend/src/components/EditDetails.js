@@ -11,23 +11,20 @@ export const EditDetails = (props) => {
   const [editItem, setEditItem] = useState(item.item)
   const [editQuantity, setEditQuantity] = useState(item.quantity)
   const [editDescription, setEditDescription] = useState(item.description)
-
   const [editToggle, setEditToggle] = useState(true)
 
   const handleSubmit = (itemID) => {
-    let changedItem = {
-      "item": editItem,
-      "description": editDescription,
-      "quantity": editQuantity
-    }
-
     fetch(`http://localhost:8080/items/${itemID}`, {
       method: 'PATCH',
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(changedItem),
+      body: JSON.stringify({
+        "item": editItem,
+        "description": editDescription,
+        "quantity": editQuantity
+      }),
     })
       .then(() => navigate(-1))
   }
